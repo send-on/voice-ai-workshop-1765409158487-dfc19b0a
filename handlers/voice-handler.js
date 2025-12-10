@@ -1,35 +1,26 @@
-import twilio from 'twilio';
-const { twiml: { VoiceResponse } } = twilio;
-
 /**
- * Voice Handler - Generates TwiML for incoming/outgoing calls
+ * Voice Handler - TwiML Response
  *
- * This function is called when someone calls your Twilio number
- * or when you initiate an outbound call.
- *
- * @param {Object} callData - Incoming webhook data from Twilio
- * @param {string} publicUrl - Your server's public URL
- * @returns {VoiceResponse} TwiML response
+ * Handles incoming/outbound calls with TwiML instructions.
+ * Customized during the Twilio Voice AI Workshop.
  */
-export default function voiceHandler(callData, publicUrl) {
-  const twiml = new VoiceResponse();
 
-  // TODO: Step 4 - Basic Call Handling
-  // Add your TwiML instructions here
-  // Examples:
-  // - twiml.say('Hello! Welcome to my voice AI.');
-  // - twiml.play('https://example.com/audio.mp3');
-  // - twiml.dial('+15551234567');
+exports.handler = function(context, event, callback) {
+  const twilio = require('twilio');
+  const twiml = new twilio.twiml.VoiceResponse();
 
-  // TODO: Step 5-6 - ConversationRelay Integration
-  // Replace basic TwiML with ConversationRelay for AI-powered conversations
-  // Example:
-  // const connect = twiml.connect();
-  // connect.conversationRelay({
-  //   url: `wss://${publicUrl.replace('https://', '').replace('http://', '')}`,
-  //   voice: 'Polly.Joanna-Neural',
-  //   dtmfDetection: true
-  // });
+  twiml.say('Hello! Thank you for calling our B2B SaaS product demonstration line.', { voice: 'Polly.Joanna' });
 
-  return twiml;
-}
+  const gather = twiml.gather({
+    numDigits: 1,
+    timeout: 10
+  });
+  gather.say('Press 1 if you are interested in scheduling a product demonstration. Press 2 if you have questions about our software. Press 3 to speak with a sales representative.', { voice: 'Polly.Joanna' });
+
+  twiml.say('Thank you for calling. Have a great day!', { voice: 'Polly.Joanna' });
+  twiml.hangup();
+
+  callback(null, twiml);
+};
+
+module.exports = { handler: exports.handler };
