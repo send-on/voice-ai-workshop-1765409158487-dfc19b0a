@@ -1,4 +1,4 @@
-# Ã°ÂÂÂÃ¯Â¸Â ConversationRelay Starter Pack
+# ÃÂ°ÃÂÃÂÃÂÃÂ¯ÃÂ¸ÃÂ ConversationRelay Starter Pack
 
 Your AI-powered voice assistant built with [Twilio ConversationRelay](https://www.twilio.com/docs/voice/conversationrelay).
 
@@ -46,7 +46,27 @@ All your custom work is preserved:
 
 ---
 
-## Ã°ÂÂÂ Quick Start (GitHub Codespaces)
+
+---
+
+## Ã°ÂÂÂ From Twilio Voice AI Workshop
+
+**If you completed the workshop:** This repository contains all your custom code from the workshop sessions! Your `.env.example` file includes your actual Twilio and OpenAI settings (with sensitive values masked). Simply:
+
+1. Copy `.env.example` to `.env.local`
+2. Fill in your actual API keys
+3. Deploy to Railway, Render, or any Node.js host
+4. Update your Twilio phone number webhook
+
+All your custom work is preserved:
+- Ã¢ÂÂ **System Prompt** (`config/system-prompt.js`) - Your AI's personality
+- Ã¢ÂÂ **Voice Handler** (`handlers/voice-handler.js`) - Your TwiML code
+- Ã¢ÂÂ **WebSocket Handler** (`handlers/websocket-handler.js`) - Your ConversationRelay logic
+- Ã¢ÂÂ **Tools** (`handlers/tools.js`) - Your function calling implementation
+
+---
+
+## ÃÂ°ÃÂÃÂÃÂ Quick Start (GitHub Codespaces)
 
 The server should start automatically when you open this Codespace. If it doesn't:
 
@@ -63,7 +83,7 @@ Return to the workshop UI to continue!
 
 ---
 
-## Ã°ÂÂÂ Quick Deploy
+## ÃÂ°ÃÂÃÂÃÂ Quick Deploy
 
 ### Deploy to Railway
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/new)
@@ -74,52 +94,52 @@ Return to the workshop UI to continue!
 ### Deploy to Heroku
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-## Ã°ÂÂÂ Prerequisites
+## ÃÂ°ÃÂÃÂÃÂ Prerequisites
 
 - **Twilio Account** - [Sign up for free](https://www.twilio.com/try-twilio)
 - **Twilio Phone Number** - With Voice capabilities
 - **OpenAI API Key** - [Get your API key](https://platform.openai.com/api-keys)
 - **Node.js 18+** - [Download Node.js](https://nodejs.org/)
 
-## Ã°ÂÂÂÃ¯Â¸Â Architecture
+## ÃÂ°ÃÂÃÂÃÂÃÂ¯ÃÂ¸ÃÂ Architecture
 
 ```
-Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ                                    Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
-Ã¢ÂÂ   Caller    Ã¢ÂÂ Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ Voice Audio Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂºÃ¢ÂÂ   Twilio     Ã¢ÂÂ
-Ã¢ÂÂ   (Phone)   Ã¢ÂÂ                                    Ã¢ÂÂ ConversationRelayÃ¢ÂÂ
-Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ                                    Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ¬Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
-                                                          Ã¢ÂÂ
-                        Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ¤
-                        Ã¢ÂÂ                                 Ã¢ÂÂ
+ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ                                    ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+ÃÂ¢ÃÂÃÂ   Caller    ÃÂ¢ÃÂÃÂ ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Voice Audio ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂºÃÂ¢ÃÂÃÂ   Twilio     ÃÂ¢ÃÂÃÂ
+ÃÂ¢ÃÂÃÂ   (Phone)   ÃÂ¢ÃÂÃÂ                                    ÃÂ¢ÃÂÃÂ ConversationRelayÃÂ¢ÃÂÃÂ
+ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ                                    ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ¬ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+                                                          ÃÂ¢ÃÂÃÂ
+                        ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ¤
+                        ÃÂ¢ÃÂÃÂ                                 ÃÂ¢ÃÂÃÂ
                    Text Transcripts              Voice Synthesis
                    (Deepgram STT)               (ElevenLabs TTS)
-                        Ã¢ÂÂ                                 Ã¢ÂÂ
-                        Ã¢ÂÂ¼                                 Ã¢ÂÂ²
-                Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ                     Ã¢ÂÂ
-                Ã¢ÂÂ  Your Server     Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ Text Response Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ
-                Ã¢ÂÂ  (WebSocket)     Ã¢ÂÂ
-                Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ¬Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
-                         Ã¢ÂÂ
+                        ÃÂ¢ÃÂÃÂ                                 ÃÂ¢ÃÂÃÂ
+                        ÃÂ¢ÃÂÃÂ¼                                 ÃÂ¢ÃÂÃÂ²
+                ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ                     ÃÂ¢ÃÂÃÂ
+                ÃÂ¢ÃÂÃÂ  Your Server     ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Text Response ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+                ÃÂ¢ÃÂÃÂ  (WebSocket)     ÃÂ¢ÃÂÃÂ
+                ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ¬ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+                         ÃÂ¢ÃÂÃÂ
                     Text to LLM
-                         Ã¢ÂÂ
-                         Ã¢ÂÂ¼
-                Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
-                Ã¢ÂÂ   Your LLM       Ã¢ÂÂ
-                Ã¢ÂÂ (OpenAI, Claude, Ã¢ÂÂ
-                Ã¢ÂÂ  Gemini, etc.)   Ã¢ÂÂ
-                Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
+                         ÃÂ¢ÃÂÃÂ
+                         ÃÂ¢ÃÂÃÂ¼
+                ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+                ÃÂ¢ÃÂÃÂ   Your LLM       ÃÂ¢ÃÂÃÂ
+                ÃÂ¢ÃÂÃÂ (OpenAI, Claude, ÃÂ¢ÃÂÃÂ
+                ÃÂ¢ÃÂÃÂ  Gemini, etc.)   ÃÂ¢ÃÂÃÂ
+                ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
 ```
 
 ### How It Works
 
-1. **Incoming Call** Ã¢ÂÂ Twilio calls your `/voice-handler` endpoint
-2. **TwiML Response** Ã¢ÂÂ Your server returns ConversationRelay TwiML
-3. **WebSocket Connection** Ã¢ÂÂ Twilio connects to your WebSocket server
-4. **Speech-to-Text** Ã¢ÂÂ Twilio (Deepgram) converts caller speech to text Ã¢ÂÂ sends `prompt` event
-5. **AI Processing** Ã¢ÂÂ Your server sends text to ANY LLM (OpenAI, Claude, etc.)
-6. **Text Response** Ã¢ÂÂ Your server sends back text Ã¢ÂÂ Twilio speaks it (ElevenLabs TTS)
+1. **Incoming Call** ÃÂ¢ÃÂÃÂ Twilio calls your `/voice-handler` endpoint
+2. **TwiML Response** ÃÂ¢ÃÂÃÂ Your server returns ConversationRelay TwiML
+3. **WebSocket Connection** ÃÂ¢ÃÂÃÂ Twilio connects to your WebSocket server
+4. **Speech-to-Text** ÃÂ¢ÃÂÃÂ Twilio (Deepgram) converts caller speech to text ÃÂ¢ÃÂÃÂ sends `prompt` event
+5. **AI Processing** ÃÂ¢ÃÂÃÂ Your server sends text to ANY LLM (OpenAI, Claude, etc.)
+6. **Text Response** ÃÂ¢ÃÂÃÂ Your server sends back text ÃÂ¢ÃÂÃÂ Twilio speaks it (ElevenLabs TTS)
 
-## Ã°ÂÂÂ Ã¯Â¸Â Local Setup
+## ÃÂ°ÃÂÃÂÃÂ ÃÂ¯ÃÂ¸ÃÂ Local Setup
 
 ### 1. Clone Repository
 
@@ -184,7 +204,7 @@ Restart your server after adding `PUBLIC_URL`.
 
 ### 6. Configure Twilio Phone Number
 
-1. Go to [Twilio Console Ã¢ÂÂ Phone Numbers](https://console.twilio.com/us1/develop/phone-numbers/manage/incoming)
+1. Go to [Twilio Console ÃÂ¢ÃÂÃÂ Phone Numbers](https://console.twilio.com/us1/develop/phone-numbers/manage/incoming)
 2. Click on your phone number
 3. Under **Voice & Fax**, set:
    - **A Call Comes In**: Webhook, `https://your-ngrok-url.ngrok.io/voice-handler`, HTTP POST
@@ -194,24 +214,24 @@ Restart your server after adding `PUBLIC_URL`.
 
 Call your Twilio phone number and start talking to your AI!
 
-## Ã°ÂÂÂ Development Workflow
+## ÃÂ°ÃÂÃÂÃÂ Development Workflow
 
 ### Project Structure
 
 ```
 conversationrelay-starter-pack/
-Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ server.js                   # Express server + WebSocket setup
-Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ handlers/
-Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ voice-handler.js        # TwiML generation (Step 4)
-Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ websocket-handler.js    # ConversationRelay logic (Steps 5-6)
-Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ tools.js                # Function calling (Step 8)
-Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ config/
-Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ system-prompt.js        # AI personality (Step 7)
-Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ public/
-Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ index.html              # Status dashboard
-Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ .env                        # Environment variables (DO NOT COMMIT)
-Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ .env.example                # Example configuration
-Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ package.json                # Dependencies
+ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ server.js                   # Express server + WebSocket setup
+ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ handlers/
+ÃÂ¢ÃÂÃÂ   ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ voice-handler.js        # TwiML generation (Step 4)
+ÃÂ¢ÃÂÃÂ   ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ websocket-handler.js    # ConversationRelay logic (Steps 5-6)
+ÃÂ¢ÃÂÃÂ   ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ tools.js                # Function calling (Step 8)
+ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ config/
+ÃÂ¢ÃÂÃÂ   ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ system-prompt.js        # AI personality (Step 7)
+ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ public/
+ÃÂ¢ÃÂÃÂ   ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ index.html              # Status dashboard
+ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ .env                        # Environment variables (DO NOT COMMIT)
+ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ .env.example                # Example configuration
+ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ package.json                # Dependencies
 ```
 
 ### Step-by-Step Implementation
@@ -339,7 +359,7 @@ async function executeToolCall(toolName, args) {
 }
 ```
 
-## Ã°ÂÂÂ Production Deployment
+## ÃÂ°ÃÂÃÂÃÂ Production Deployment
 
 ### Railway Deployment
 
@@ -382,7 +402,7 @@ npm start
 - `PUBLIC_URL` (your server's public URL)
 - `PORT` (defaults to 3000)
 
-## Ã°ÂÂÂ Conversational Intelligence (Optional)
+## ÃÂ°ÃÂÃÂÃÂ Conversational Intelligence (Optional)
 
 Add AI-powered call analytics to your application with Twilio Conversational Intelligence.
 
@@ -494,7 +514,7 @@ ws.on('close', async () => {
         })
       });
 
-      console.log('Ã¢ÂÂ CI Transcript created');
+      console.log('ÃÂ¢ÃÂÃÂ CI Transcript created');
     }
   }
 });
@@ -542,7 +562,7 @@ const operators = await fetch(
 - [Intelligence API Reference](https://www.twilio.com/docs/voice/intelligence/api)
 - [Language Operators Catalog](https://www.twilio.com/docs/voice/intelligence/operators)
 
-## Ã°ÂÂÂ Security Best Practices
+## ÃÂ°ÃÂÃÂÃÂ Security Best Practices
 
 1. **Never commit `.env`** - Already in `.gitignore`
 2. **Use environment variables** - For all sensitive credentials
@@ -551,7 +571,7 @@ const operators = await fetch(
 5. **HTTPS only** - Always use HTTPS in production (HTTP not allowed for webhooks)
 6. **Rotate credentials** - Regularly rotate API keys and auth tokens
 
-## Ã°ÂÂ§Âª Testing
+## ÃÂ°ÃÂÃÂ§ÃÂª Testing
 
 ### Test Server Status
 
@@ -594,7 +614,7 @@ WS_URL=wss://your-codespace-url-3000.app.github.dev node test-websocket.js
 2. Watch server logs: `npm run dev`
 3. Check WebSocket connections in status dashboard: `http://localhost:3000`
 
-## Ã°ÂÂÂ Resources
+## ÃÂ°ÃÂÃÂÃÂ Resources
 
 - [Twilio ConversationRelay Docs](https://www.twilio.com/docs/voice/conversationrelay)
 - [ConversationRelay WebSocket Messages](https://www.twilio.com/docs/voice/conversationrelay/websocket-messages)
@@ -604,7 +624,7 @@ WS_URL=wss://your-codespace-url-3000.app.github.dev node test-websocket.js
 - [Twilio Voice Webhooks](https://www.twilio.com/docs/voice/twiml)
 - [Node.js WebSocket (ws) Library](https://github.com/websockets/ws)
 
-## Ã°ÂÂÂ Troubleshooting
+## ÃÂ°ÃÂÃÂÃÂ Troubleshooting
 
 ### WebSocket Connection Fails
 
@@ -622,7 +642,7 @@ WS_URL=wss://your-codespace-url-3000.app.github.dev node test-websocket.js
 
 - Verify webhook URL is publicly accessible (test with curl)
 - Check webhook URL format: `https://your-domain.com/voice-handler`
-- View webhook logs in Twilio Console Ã¢ÂÂ Monitor Ã¢ÂÂ Logs Ã¢ÂÂ Errors
+- View webhook logs in Twilio Console ÃÂ¢ÃÂÃÂ Monitor ÃÂ¢ÃÂÃÂ Logs ÃÂ¢ÃÂÃÂ Errors
 
 ### Call Connects but No Audio
 
@@ -631,15 +651,15 @@ WS_URL=wss://your-codespace-url-3000.app.github.dev node test-websocket.js
 - Check server logs for errors in the `prompt` event handler
 - Ensure system prompt is configured in `config/system-prompt.js`
 
-## Ã°ÂÂ¤Â Contributing
+## ÃÂ°ÃÂÃÂ¤ÃÂ Contributing
 
 Contributions welcome! Please open an issue or submit a pull request.
 
-## Ã°ÂÂÂ License
+## ÃÂ°ÃÂÃÂÃÂ License
 
 MIT License - feel free to use this starter pack for any project!
 
-## Ã°ÂÂÂ¬ Support
+## ÃÂ°ÃÂÃÂÃÂ¬ Support
 
 - [Twilio Support](https://support.twilio.com/)
 - [OpenAI Help Center](https://help.openai.com/)
@@ -647,4 +667,4 @@ MIT License - feel free to use this starter pack for any project!
 
 ---
 
-Built with Ã¢ÂÂ¤Ã¯Â¸Â using [Twilio ConversationRelay](https://www.twilio.com/docs/voice/conversationrelay), [Deepgram STT](https://deepgram.com/), and [ElevenLabs TTS](https://elevenlabs.io/)
+Built with ÃÂ¢ÃÂÃÂ¤ÃÂ¯ÃÂ¸ÃÂ using [Twilio ConversationRelay](https://www.twilio.com/docs/voice/conversationrelay), [Deepgram STT](https://deepgram.com/), and [ElevenLabs TTS](https://elevenlabs.io/)
